@@ -1,8 +1,9 @@
 <script>
     import Workspace from './Workspace.svelte';
-    import { db } from './firebase';
+    import { db } from '../firebase';
     import { collectionData } from 'rxfire/firestore';
     import { startWith } from 'rxjs/operators';
+
 
     export let uid;
 
@@ -45,15 +46,13 @@
     input { display: block }
 </style>
 
-<ul>
-    {#each $workspaces as workspace}
-
-        <Workspace id={workspace.id} title={workspace.title} on:remove={remove} on:rename={rename} />
-
-    {/each}
-</ul>
-
-
+<hr>
 <input bind:value={title}>
 
 <button on:click={add}>Add Workspace</button>
+<hr>
+{#each $workspaces as workspace}
+
+    <Workspace id={workspace.id} title={workspace.title} on:remove={remove} on:rename={rename} />
+
+{/each}

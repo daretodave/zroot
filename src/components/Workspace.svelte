@@ -20,7 +20,9 @@
     export let title;
 
 </script>
-
-<span>{ title }</span>
-
-<button on:click={remove}> 🗑 </button>
+<div>
+    <button on:click={remove}>
+        <i class="fal fa-ban"></i>
+    </button>
+    <span>{ title }</span>
+</div>
